@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          My Instagram
+          My Instagram/sonosung
         </a>
       </header>
     </div>
