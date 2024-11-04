@@ -7,11 +7,6 @@
   pointer-events: none;
 }
 
-.top-bar {
-  background: linear-gradient(180deg, #000000, #000033);
-  height: 100vh;
-}
-
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

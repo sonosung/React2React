@@ -1,22 +1,45 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
 
 function App() {
 
-  let post = 'hello!' //º¯¼ö¿¡ ÆÄ¶ó¹ÌÅÍ°¡ ¹Ù²î¾îµµ, return µÉ¶§ º¯°æ ³»¿ëÀÌ ¹İ¿µµÇÁö ¾ÊÀ½.
-  let [sub, b] = useState('subtitle'); //state ´Â return °ª¿¡ º¯°æ»çÇ×ÀÌ ÀÚµ¿À¸·Î ¹İ¿µµÈ´Ù.
-  let [snd, b] = useState('secondtitle');
-  //ÀÚÁÖ º¯°æÀÌ µÉ ÀÚ·áµéÀº state·Î Á¤ÀÇÇÏ¸é À¯¿ëÇÑ °æ¿ì°¡ ÀÖ´Ù.
-  let [a,b] = [1,2] //¹è¿­ ÀÚ·áÇüÅÂ´Â ÀÌ·± ½ÄÀ¸·Î ¸¸µê.
+  let post = 'hello!' //ë³€ìˆ˜ì— íŒŒë¼ë¯¸í„°ê°€ ë°”ë€Œì–´ë„, return ë ë•Œ ë³€ê²½ ë‚´ìš©ì´ ë°˜ì˜ë˜ì§€ ì•ŠìŒ.
+  let [sub, b] = useState('subtitle'); //state ëŠ” return ê°’ì— ë³€ê²½ì‚¬í•­ì´ ìë™ìœ¼ë¡œ ë°˜ì˜ëœë‹¤.
+  let [snd, c] = useState('secondtitle');
+  //ìì£¼ ë³€ê²½ì´ ë  ìë£Œë“¤ì€ stateë¡œ ì •ì˜í•˜ë©´ ìœ ìš©í•œ ê²½ìš°ê°€ ìˆë‹¤.
+  let [a,d] = [1,2] //ë°°ì—´ ìë£Œí˜•íƒœëŠ” ì´ëŸ° ì‹ìœ¼ë¡œ ë§Œë“¦.
+
+  let [title, changeTitle] = useState(['first title', 'second title', 'third title']);
+  
+  let[ì¢‹ì•„ìš”, ì¢‹ì•„ìš”ì¦ê°€] = useState(0);
+
+  // let[ì œëª©ë³€ê²½, ë³€ê²½ë‚´ìš©] = useState('changed title')
+
+  function titleChange(){
+    console.log('changed title');
+  }
 
   return (
     <div className="App">
-      <div className="top-bar">
        <h4 style={{color : 'white'}}>
         { post } 
         </h4>
-      </div>
+
+        <div className="list">
+          <h4>{ title[0] }<span onClick={ ()=> ì¢‹ì•„ìš”ì¦ê°€(ì¢‹ì•„ìš”+1) }> ì¢‹ì•„ìš”ğŸ‘</span> {ì¢‹ì•„ìš”} </h4>
+          <p>11ì›” 05ì¼</p>
+        </div>
+
+        <div className="list">
+          <span onClick={ titleChange }> ì œëª© ë³€ê²½ </span> {titleChange}
+          <p>11ì›” 05ì¼</p>
+        </div>
+
+        <div className="list">
+          <h4>{ title[2] }</h4>
+          <p>11ì›” 05ì¼</p>
+        </div>
       
     </div>
   );
