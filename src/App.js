@@ -16,15 +16,17 @@ function App() {
 
   // let[제목변경, 변경내용] = useState('changed title')
 
-  function titleChange(){
-    console.log('changed title');
-  }
-
   return (
     <div className="App">
-       <h4 style={{color : 'white'}}>
+       <h4>
         { post } 
         </h4>
+
+        <button onClick={()=>{
+          let newTitle = [...title] //"..."은 Spread Operator 라고 한다. "..." 연산자는 배열이나 문자열 같은 반복이 가능한 구조를 각각의 요소로 확장될 수 있게 한다. (참고 : https://www.youtube.com/watch?v=RuDdltsfaVc&ab_channel=BroCode)
+          newTitle[0] = 'titleChanged';
+          changeTitle(newTitle);
+        }}>let's change the title!</button>
 
         <div className="list">
           <h4>{ title[0] }<span onClick={ ()=> 좋아요증가(좋아요+1) }> 좋아요👍</span> {좋아요} </h4>
@@ -32,12 +34,12 @@ function App() {
         </div>
 
         <div className="list">
-          <span onClick={ titleChange }> 제목 변경 </span> {titleChange}
+        <h4>{ title[1] }<span onClick={ ()=> 좋아요증가(좋아요+1) }> 좋아요👍</span> {좋아요} </h4>
           <p>11월 05일</p>
         </div>
 
         <div className="list">
-          <h4>{ title[2] }</h4>
+        <h4>{ title[2] }<span onClick={ ()=> 좋아요증가(좋아요+1) }> 좋아요👍</span> {좋아요} </h4>
           <p>11월 05일</p>
         </div>
       
