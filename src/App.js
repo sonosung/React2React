@@ -42,9 +42,21 @@ function App() {
         <h4>{ title[2] }<span onClick={ ()=> 좋아요증가(좋아요+1) }> 좋아요👍</span> {좋아요} </h4>
           <p>11월 05일</p>
         </div>
-      
+        
+        <Modal></Modal>
+
     </div>
   );
+}
+
+function Modal() {
+  return(
+    <div className="modal">
+    <h4>제목</h4>
+    <p>날짜</p>
+    <p>상세내용</p>
+  </div>
+  )
 }
 
 export default App;
