@@ -14,7 +14,15 @@ function App() {
   
   let[좋아요, 좋아요증가] = useState(0);
 
+  let[modal, setModal] = useState(false); //useState()의 괄호 안에 state는 개발자 임의대로 정해도 된다.
+
   // let[제목변경, 변경내용] = useState('changed title')
+
+  // 2024.11.15 array mapping
+  // [1,2,3].map(function(){
+  //   console.log(1)
+  //   return 'array 1,2,3에 들어감.'
+  // })
 
   return (
     <div className="App">
@@ -27,8 +35,12 @@ function App() {
           newTitle[0] = 'titleChanged';
           changeTitle(newTitle);
         }}>let's change the title!</button>
-
-        <div className="list">
+        
+        <div>
+        <button onClick={()=> setModal(false)} >모달 창 닫기</button>
+        </div>
+        
+        {/* <div className="list">
           <h4>{ title[0] }<span onClick={ ()=> 좋아요증가(좋아요+1) }> 좋아요👍</span> {좋아요} </h4>
           <p>11월 05일</p>
         </div>
@@ -41,9 +53,55 @@ function App() {
         <div className="list">
         <h4>{ title[2] }<span onClick={ ()=> 좋아요증가(좋아요+1) }> 좋아요👍</span> {좋아요} </h4>
           <p>11월 05일</p>
-        </div>
+        </div> */}
         
-        <Modal></Modal>
+
+        {/* map 함수를 이용한 반복문 활용법! */}
+        {/* {
+          [1,2,3].map(function(){
+            return <div>message</div>
+          })
+        }
+
+        {
+          [<div>message</div>,<div>message</div>,<div>message</div>]
+        } */}
+
+        {
+          // title.map(function(a){
+          //   return (
+          //     <div className="list">
+          //     <h4>{ a }</h4>
+          //     <p>11월 05일</p>
+          //     </div>
+          //   )
+          // })
+        }
+        
+        {
+          title.map(function(a,i){
+            return (
+              <div className="list">
+              <h4 onClick={()=> setModal(true) }>{ title[i] }</h4>
+              <button onClick={()=> setModal(false)} >모달 창 닫기</button>
+              <p>11월 05일</p>
+              </div>
+            )
+          })
+        }
+
+        {/* 
+        javascript의 중괄호 내에선 if문을 사용할 수 없으므로, 삼항연산자(ternary operator)로 대체한다. 
+        동적인 UI 만드는 step!
+        1. html, css 로 미리 디자인을 완성한다.
+        2.UI의 현재 상태를 state로 저장한다.
+        3.state에 따라 UI가 어떻게 보일지 작성한다.
+        */}
+
+        {
+          // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
+          modal === true ? <Modal/> : null
+        }
 
     </div>
   );
