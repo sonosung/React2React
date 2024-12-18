@@ -100,19 +100,22 @@ function App() {
 
         {
           // 조건식 ? 참일때 실행할 코드 : 거짓일 때 실행할 코드
-          modal === true ? <Modal/> : null
+          modal === true ? 
+          
+          <Modal title={title} changeTitle={changeTitle}/> : null
         }
 
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return(
     <div className="modal">
-    <h4>제목</h4>
+    <h4>{props.title[1]}</h4>
     <p>날짜</p>
     <p>상세내용</p>
+    <button onClick={()=>{ props.changeTitle(['new title', 'newsecond title', 'third title']) }}>change</button>
   </div>
   )
 }
